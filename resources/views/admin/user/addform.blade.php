@@ -6,12 +6,11 @@
       action="{{url('admin/users/add-user/')}}" enctype="multipart/form-data">
           @csrf
           <div class="field">
-        <label class="label">Name</label>
-        <div class="control">
-          <input class="input" type="text" placeholder="Text input" name ="name">
-        </div>
-      </div>
-
+            <label class="label">Name</label>
+            <div class="control">
+              <input class="input" type="text" placeholder="Text input" name ="name">
+            </div>
+          </div>
 
       <div class="field">
         <label class="label">Email</label>

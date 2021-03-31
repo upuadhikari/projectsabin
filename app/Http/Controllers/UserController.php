@@ -76,7 +76,6 @@ class UserController extends Controller
         }
 
         else {
-            
             $user = new User;
             $user->name = $request->name;
             $user->email = $request->email;
@@ -96,7 +95,6 @@ class UserController extends Controller
                     $fullname = time().".".$imgExt;
                     $result = $image->storeAs('images',$fullname);
 
-
             }
             else{
                 $fullname = "default.png";
@@ -104,10 +102,7 @@ class UserController extends Controller
 
             $user->profile_pic = $fullname;
 
-
-
         }
-
 
         if ($user->save()) {
 
@@ -141,14 +136,9 @@ class UserController extends Controller
         $user->role = $request->role;
         $user->status = $request->status;
 
-
-
-        
         if ($user->save()) {
            
              return redirect('admin/users/')->with('success', 'User Updated Successfully.');
-
-
         }
 
         return redirect('admin/users/edit-user/' . $id)->with('errors', ['Sorry Some Error Occured.Please Try Again']);
@@ -165,7 +155,13 @@ class UserController extends Controller
         if ($result) {
         	return view('admin.user.userview',compact('data'));
         }
-        
+    }
+
+    public function searchuserForAdmin(Request $request){
+
+        $searched=$request->searched;
+        $data= User::orWhere('name','Like',"%$searched%")->orWhere('email','Like',"%$searched%")->orWhere('mobile','Like',"%$searched%")->get();
+        return view('admin.user.searchuserview',compact('data','searched'));
     }
 
 }

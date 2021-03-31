@@ -36,6 +36,7 @@ require __DIR__.'/auth.php';
     	    Route::get('/',[UserController::class, 'index']);
     	    Route::post('/updateuserinfo/{id}',[UserController::class, 'UpdateUser']);
     	    Route::get('/add-user',[UserController::class, 'addUser']);
+            Route::post('/search-user',[UserController::class, 'searchuserForAdmin']);
             Route::post('/add-user',[UserController::class, 'addNewUser']);
             Route::get('/edit-user/{id}',[UserController::class, 'editUser']);
             Route::post('/edit-user/{id}',[UserController::class, 'updateUser']);

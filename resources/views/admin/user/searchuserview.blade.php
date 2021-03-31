@@ -13,20 +13,10 @@
             </div>
         @endif
 
-        <form style="float: right;" method="POST" 
-          action="{{url('admin/users/search-user/')}}" >
-              @csrf
-                  <input class="input is-normal" type="text" placeholder="Normal input" style="width: 300px; " name="searched">
-                  <button class="btn btn-primary" >Search</button>
-
-        </form>
         <div class="buttons" style="float: right;">
-
             <a href="{{url('admin/users/add-user')}}" class="button is-primary">Add User</a>
-
         </div>
-         <h2 style="color:blue">List of users</h2>
-
+         <h2 style="color:blue">Search result </h2>
 
          <table border="1px" class="table">
              <tr>
@@ -49,7 +39,9 @@
                         </form>
 
                     </td>
-                   
+                    <!-- <td><a href="{{url('admin/user/delete-user/'.$user->id)}}" class="btn btn-default">
+                        Delete
+                    </a></td> -->
                 </tr>
              @endforeach
 
